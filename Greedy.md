@@ -28,7 +28,7 @@
   ## 跳跃游戏
   数组的每个元素代表在该位置最大可以跳的length。跳跃范围能不能覆盖到终点  
   有点像non-overloop区间  
-  ![image](https://user-images.githubusercontent.com/113034973/219900374-6a6c40a0-4e03-4eeb-a173-9fa538d783bc.png)  
+  <img src="https://user-images.githubusercontent.com/113034973/219900374-6a6c40a0-4e03-4eeb-a173-9fa538d783bc.png" width=50% height=300px>    
    重点是每次在max = Math.max(max,coverRange)之前要判断i<=max，才能保证这个点能被之前最大的Range cover住。  
         int max = 0;  
         int l = 0;  
@@ -57,7 +57,7 @@
                 count++;//  
             }      
         }  
-        ![image](https://user-images.githubusercontent.com/113034973/220166920-eb83c5a5-4f2e-4560-b6d8-6856e35276ad.png)
+        <img src="https://user-images.githubusercontent.com/113034973/220166920-eb83c5a5-4f2e-4560-b6d8-6856e35276ad.png" width=40% height=350px>
 
 
    
@@ -74,7 +74,7 @@
 环行路N个加油站，第i个加油站有gas[i]升汽油，油箱无限容量的汽车从第i个加油站开往第i+1个需要消耗cost[i]升汽油。从其中一个加油站出发，如果可以绕行一周，则返回出发时加油站编号。  
 暴力解法：是一个环形问题，要取余数。for适合模拟从头到尾，while适合模拟环形遍历。  
 局部最优：每个加油站剩余量rest[i]=gas[i]-cost[i]，如果curSum<0，说明[0,i]区间都不能作为起始位置。所以从i+1作为起始位置算起.**这时清空了curSum重新从0开始**  
-![image](https://user-images.githubusercontent.com/113034973/220179026-3460cc3d-5251-4bf1-9da9-8ad2a27e66a8.png)  
+<img src="https://user-images.githubusercontent.com/113034973/220179026-3460cc3d-5251-4bf1-9da9-8ad2a27e66a8.png" width=40% height=300px>  
 ```java
  public int canCompleteCircuit(int[] gas, int[] cost) {
         int count =0;
