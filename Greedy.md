@@ -57,9 +57,44 @@
                 count++;//  
             }      
         }  
+        ![image](https://user-images.githubusercontent.com/113034973/220166920-eb83c5a5-4f2e-4560-b6d8-6856e35276ad.png)
+
+
    
 
-  ## k次取反后最大化的数组和
+  ## k次取反后最大化的数组和，将A[i]替换为-A[i]从而使和最大，重复k次
+  局部最优：让绝对值大的负数变为正数，当前数值达到最大。从而达到整体最优  
+  当负数都变为正数后，k若还大于0，使绝对值最小的正数反转。  
+  解题步骤：  
+  1.绝对值从大到小排序。  
+  2.从前向后遍历，若遇到负数，k--  
+  3.若k>0,反转**最小的数**(只用反转最小的正负正负这样循环就行）直到k=0 
   
+  ## 加油站。
+环行路N个加油站，第i个加油站有gas[i]升汽油，油箱无限容量的汽车从第i个加油站开往第i+1个需要消耗cost[i]升汽油。从其中一个加油站出发，如果可以绕行一周，则返回出发时加油站编号。  
+暴力解法：是一个环形问题，要取余数。for适合模拟从头到尾，while适合模拟环形遍历。  
+局部最优：每个加油站剩余量rest[i]=gas[i]-cost[i]，如果curSum<0，说明[0,i]区间都不能作为起始位置。所以从i+1作为起始位置算起.**这时清空了curSum重新从0开始**  
+![image](https://user-images.githubusercontent.com/113034973/220179026-3460cc3d-5251-4bf1-9da9-8ad2a27e66a8.png)  
+```java
+ public int canCompleteCircuit(int[] gas, int[] cost) {
+        int count =0;
+        int curSum =0;
+        int totalSum = 0;
+       for(int i=0;i<gas.length;i++){
+           curSum += gas[i] - cost[i];
+           totalSum +=gas[i] - cost[i];
+           if(curSum<0){
+               count = i+1;
+               curSum=0;//从0开始
+           }
+       }
+           if(totalSum<0){//如果总gas<cost 说明不能返回
+               return -1;
+           }
+       return count;
+    }
+```
+  
+  ## 分发糖果
   
   
